@@ -10,14 +10,28 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      home: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(color: Colors.red,width: 100,height: 100),
-          Container(color: Colors.blue,width: 50,height: 50,)
+          Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              Container(color: Colors.black, width: 100, height: 100,),
+              Container(color: Colors.yellow,width: 50,height: 50,),
+              Container(color: Colors.black, width: 25, height: 25,),
+            ],
+          ),
+          Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              Container(color: Colors.yellow, width: 100, height: 100,),
+              Container(color: Colors.black,width: 50,height: 50,),
+              Container(color: Colors.yellow, width: 25, height: 25,),
+            ],
+          )
         ],
-      ),
+      )
     );
   }
 }

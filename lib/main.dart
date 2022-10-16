@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_alura_flutter/initial_screen.dart';
-import 'package:projeto_alura_flutter/task.dart';
+import 'package:projeto_alura_flutter/screens/initial_screen.dart';
+import 'package:projeto_alura_flutter/components/task.dart';
 
 void main() => runApp(App());
 
-class App extends StatefulWidget {
-  @override
-  State<App> createState() => _AppState();
-}
-
-class _AppState extends State<App> {
+class App extends StatelessWidget {
   @override
   build(context) {
     return MaterialApp(
@@ -17,7 +12,7 @@ class _AppState extends State<App> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: InitialScreen(),
+      home: const InitialScreen(),
     );
   }
 }

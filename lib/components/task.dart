@@ -13,6 +13,20 @@ class Task extends StatefulWidget {
 
 class _TaskState extends State<Task> {
   int nivel = 0;
+  int difficultyCounter = 0;
+
+  Color colorSet() {
+    if (difficultyCounter == 1) {
+      return const Color.fromARGB(255, 19, 167, 0);
+    } else if (difficultyCounter == 2) {
+      return const Color.fromARGB(255, 207, 149, 67);
+    } else if (difficultyCounter == 3) {
+      return const Color.fromARGB(255, 43, 48, 108);
+    } else if (difficultyCounter >= 4) {
+      return const Color.fromARGB(255, 0, 0, 0);
+    }
+    return Colors.blue;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +36,7 @@ class _TaskState extends State<Task> {
         children: [
           Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5), color: Colors.blue),
+                borderRadius: BorderRadius.circular(5), color: colorSet()),
             height: 140,
           ),
           Column(
@@ -75,6 +89,10 @@ class _TaskState extends State<Task> {
                           onPressed: () {
                             setState(() {
                               nivel++;
+                              if (((nivel / widget.dificuldade) / 1) >= 1) {
+                                difficultyCounter++;
+                                nivel = 0;
+                              }
                             });
                           },
                           child: Column(
@@ -104,7 +122,7 @@ class _TaskState extends State<Task> {
                       child: LinearProgressIndicator(
                         color: Colors.white,
                         value: (widget.dificuldade > 0)
-                            ? (nivel / widget.dificuldade) / 10
+                            ? (nivel / widget.dificuldade) / 1
                             : 1,
                       ),
                       width: 200,

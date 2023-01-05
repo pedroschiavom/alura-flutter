@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_alura_flutter/screens/form_screen.dart';
 import 'package:projeto_alura_flutter/screens/initial_screen.dart';
 import 'package:projeto_alura_flutter/components/task.dart';
 
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const InitialScreen(),
+      home: const FormScreen(),
     );
   }
 }

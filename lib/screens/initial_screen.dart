@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_alura_flutter/components/task.dart';
 
+import 'form_screen.dart';
+
 class InitialScreen extends StatefulWidget {
   const InitialScreen({super.key});
 
@@ -9,7 +11,6 @@ class InitialScreen extends StatefulWidget {
 }
 
 class _InitialScreenState extends State<InitialScreen> {
-  bool opacidade = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,30 +18,29 @@ class _InitialScreenState extends State<InitialScreen> {
         leading: Container(),
         title: const Text('Tarefas'),
       ),
-      body: AnimatedOpacity(
-        opacity: opacidade ? 1 : 0,
-        duration: Duration(milliseconds: 800),
-        child: ListView(
-          children: const [
-            Task('Aprender Flutter no café da manhã comendo sucrilhos',
-                'assets/images/flutter.png', 5),
-            Task('Aprender Pentest', 'assets/images/pentest.jpg', 4),
-            Task('Aprender Spring', 'assets/images/spring.png', 5),
-            Task('Tocar Guitarra', 'assets/images/guitarra.jpg', 5),
-            Task('Pilotar', 'assets/images/drift.jpg', 4),
-            SizedBox(
-              height: 100,
-            )
-          ],
-        ),
+      body: ListView(
+        children: const [
+          Task('Aprender Flutter no café da manhã comendo sucrilhos',
+              'assets/images/flutter.png', 5),
+          Task('Aprender Pentest', 'assets/images/pentest.jpg', 4),
+          Task('Aprender Spring', 'assets/images/spring.png', 5),
+          Task('Tocar Guitarra', 'assets/images/guitarra.jpg', 5),
+          Task('Pilotar', 'assets/images/drift.jpg', 4),
+          SizedBox(
+            height: 100,
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            opacidade = !opacidade;
-          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FormScreen(),
+            ),
+          );
         },
-        child: const Icon(Icons.remove_red_eye),
+        child: const Icon(Icons.add),
       ),
     );
   }
